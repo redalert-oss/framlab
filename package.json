@@ -1,0 +1,56 @@
+{
+  "name": "framelab-desktop",
+  "version": "0.2.0",
+  "description": "Installed-Codex powered local photo style editor",
+  "main": "main.js",
+  "author": "FrameLab",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "check": "node scripts/check.js",
+    "start": "electron .",
+    "build:mac": "electron-builder --mac dmg zip",
+    "build:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.framelab.photoeditor",
+    "productName": "FrameLab",
+    "asar": false,
+    "files": [
+      "main.js",
+      "server.py",
+      "index.html",
+      "photo-edit-assets/**/*",
+      "presets/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "mac": {
+      "category": "public.app-category.photography",
+      "icon": "build/icon.png",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "artifactName": "FrameLab-${version}-${arch}.${ext}"
+    },
+    "dmg": {
+      "title": "FrameLab",
+      "artifactName": "FrameLab-${version}-${arch}.${ext}"
+    },
+    "artifactName": "FrameLab-${version}-${arch}.${ext}"
+  }
+}

@@ -1,0 +1,15 @@
+outputs/
+.uploads/
+__pycache__/
+node_modules/
+.pnpm-store/
+dist/
+.DS_Store
+*.log
+.env
+.env.*
+!.env.example
+
+# FrameLab user data must stay local.
+workspace/
+user-data/
